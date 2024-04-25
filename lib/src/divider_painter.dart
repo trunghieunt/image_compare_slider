@@ -84,7 +84,7 @@ class _DividerPainter extends CustomPainter {
       if (visibleControlHandle) {
         // Draw icons
         const iconPadding = 0.0;
-        const iconSize = 18.0;
+        final iconSize = handle.width / 2;
 
         // Draw left icon
         const leftIcon = Icons.arrow_left_sharp;

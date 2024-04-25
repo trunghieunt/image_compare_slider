@@ -40,11 +40,11 @@ class _AppState extends State<_App> {
   bool hideHandle = false;
   double position = 0.65;
   double handlePosition = 0.5;
-  double handleSizeHeight = 36;
-  double handleSizeWidth = 36;
+  double handleSizeHeight = 80;
+  double handleSizeWidth = 80;
   bool handleFollowsP = false;
   bool fillHandle = true;
-  double handleRadius = 18;
+  double handleRadius = 40;
   Color? itemOneColor;
   Color? itemTwoColor;
   BlendMode itemOneBlendMode = BlendMode.overlay;
