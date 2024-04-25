@@ -38,13 +38,13 @@ class _AppState extends State<_App> {
   double dividerWidth = 2;
   bool reactOnHover = false;
   bool hideHandle = false;
-  double position = 0.5;
+  double position = 0.65;
   double handlePosition = 0.5;
-  double handleSizeHeight = 75;
-  double handleSizeWidth = 7.5;
+  double handleSizeHeight = 36;
+  double handleSizeWidth = 36;
   bool handleFollowsP = false;
   bool fillHandle = true;
-  double handleRadius = 10;
+  double handleRadius = 18;
   Color? itemOneColor;
   Color? itemTwoColor;
   BlendMode itemOneBlendMode = BlendMode.overlay;
@@ -118,8 +118,8 @@ class _AppState extends State<_App> {
                       colorBlendMode: itemTwoBlendMode,
                       color: itemTwoColor,
                     ),
-
                     /* Optional */
+                    visibleControlHandle: true,
                     changePositionOnHover: reactOnHover,
                     direction: direction,
                     dividerColor: dividerColor,

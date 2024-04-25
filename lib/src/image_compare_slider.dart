@@ -54,6 +54,7 @@ class ImageCompareSlider extends StatefulWidget {
     this.hideHandle = false,
     this.handlePosition = 0.5,
     this.handleFollowsPosition = false,
+    this.visibleControlHandle = false,
     this.direction = SliderDirection.leftToRight,
     this.photoRadius = BorderRadius.zero,
   })  : portrait = direction == SliderDirection.topToBottom ||
@@ -85,6 +86,10 @@ class ImageCompareSlider extends StatefulWidget {
 
   /// Whether the slider should follow the pointer on hover.
   final bool changePositionOnHover;
+
+  // customize your handle
+  // ignore: public_member_api_docs
+  final bool visibleControlHandle;
 
   /// Callback on position change, returns current position.
   final void Function(double position)? onPositionChange;
@@ -265,6 +270,7 @@ class _ImageCompareSliderState extends State<ImageCompareSlider> {
                 hideHandle: widget.hideHandle,
                 handlePosition: handlePosition,
                 handleRadius: widget.handleRadius,
+                visibleControlHandle: widget.visibleControlHandle,
               ),
               child: Opacity(opacity: 0, child: secondImage),
             ),

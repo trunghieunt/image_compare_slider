@@ -13,6 +13,7 @@ class _DividerPainter extends CustomPainter {
     required this.fillHandle,
     required this.handleSize,
     required this.handleRadius,
+    required this.visibleControlHandle,
   });
 
   final double position;
@@ -26,6 +27,7 @@ class _DividerPainter extends CustomPainter {
   final double handlePosition;
   final Size handleSize;
   final BorderRadius handleRadius;
+  final bool visibleControlHandle;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -78,6 +80,55 @@ class _DividerPainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.butt;
       canvas.drawRRect(handleRadius.toRRect(rect), handleOutlinePaint);
+
+      if (visibleControlHandle) {
+        // Draw icons
+        const iconPadding = 0.0;
+        const iconSize = 18.0;
+
+        // Draw left icon
+        const leftIcon = Icons.arrow_left_sharp;
+        final textLeftPainter = TextPainter(textDirection: TextDirection.ltr);
+        // ignore: cascade_invocations
+        textLeftPainter
+          ..text = TextSpan(
+            text: String.fromCharCode(leftIcon.codePoint),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: iconSize,
+              fontFamily: leftIcon.fontFamily,
+              package: leftIcon.fontPackage,
+            ),
+          )
+          ..layout()
+          ..paint(
+            canvas,
+            Offset(dx - handle.height / 2 + iconPadding, dy - iconSize / 2),
+          );
+
+        // Draw left icon
+        const rightIcon = Icons.arrow_right_sharp;
+        final textRightPainter = TextPainter(textDirection: TextDirection.ltr);
+        // ignore: cascade_invocations
+        textRightPainter
+          ..text = TextSpan(
+            text: String.fromCharCode(rightIcon.codePoint),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: iconSize,
+              fontFamily: rightIcon.fontFamily,
+              package: rightIcon.fontPackage,
+            ),
+          )
+          ..layout()
+          ..paint(
+            canvas,
+            Offset(
+              dx + iconPadding,
+              dy - iconSize / 2,
+            ),
+          );
+      }
     }
   }
 
